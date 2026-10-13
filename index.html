@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { background:#111; color:white; font-family:Arial; text-align:center; margin:0; overflow:hidden; }
+.container { position:relative; z-index:2; margin-top:50px; }
+video {
+  width:300px; height:300px; object-fit:cover; border-radius:50%;
+  box-shadow:0 0 30px hotpink, 0 0 60px pink;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+.heart { position:fixed; top:-20px; font-size:20px; animation:fall linear infinite; z-index:1; }
+@keyframes fall { to{ top:110vh; transform:rotate(360deg);} }
+h1{ color:hotpink; text-shadow:0 0 10px pink; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<video autoplay loop muted playsinline>
+  <source src="video-kamu.mp4" type="video/mp4">
+</video>
+<h1>Karena Kamu Itu Cantik 💖</h1>
+<p>Pagi ini ku terbangun<br>Senyummu terbayang lagi...</p>
+</div>
+
+<script>
+// love jatuh otomatis
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart"; h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+},300);
+</script>
+
+</body>
+</html>
